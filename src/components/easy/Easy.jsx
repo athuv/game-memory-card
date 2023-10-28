@@ -1,5 +1,5 @@
 import { Header } from '../header-footer/Header';
-import EasyCard from '../card/EasyCard';
+import EasyCard from './EasyCard';
 import Footer from '../header-footer/Footer';
 import '../../assets/styles/InGame.css';
 

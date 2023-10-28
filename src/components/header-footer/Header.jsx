@@ -14,6 +14,7 @@ export function Header({ isDifficulty }) {
         />
 
         <img
+          onClick={''}
           className={`home__logo ${isDifficulty ? 'home__logo--left' : ''}`}
           srcSet="../../public/images/Logo_4.png"
           alt="logo"
