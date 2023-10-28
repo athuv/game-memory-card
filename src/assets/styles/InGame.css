@@ -5,3 +5,6 @@
 .home__logo--left:hover {
   transform: scale(1.2);
 }
+.footer-in-game {
+  height: fit-content;
+}

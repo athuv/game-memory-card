@@ -1,6 +1,3 @@
-import Icon from '@mdi/react';
-import { mdiVolumeHigh, mdiMusic, mdiHelpCircle } from '@mdi/js';
-
 export function Header({ isDifficulty }) {
   return (
     <header

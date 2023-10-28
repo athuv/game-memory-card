@@ -12,9 +12,6 @@
   width: auto;
   height: 30vh;
 }
-.home__logo--left {
-  height: 17vh;
-}
 .home__difficulty {
   display: flex;
   justify-content: center;

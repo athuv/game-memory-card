@@ -1,7 +1,6 @@
 import '../../assets/styles/Home.css';
-import Icon from '@mdi/react';
-import { mdiVolumeHigh, mdiMusic, mdiHelpCircle } from '@mdi/js';
-import { Header } from '../header/Header';
+import { Header } from '../header-footer/Header';
+import Footer from '../header-footer/Footer';
 
 function Title() {
   return (
@@ -36,22 +35,6 @@ function Difficulty({ onClick }) {
         Hard
       </button>
     </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="footer">
-      <button className="footer__button footer__button--sound">
-        <Icon path={mdiVolumeHigh} size={2} />
-      </button>
-      <button className="footer__button footer__button--music">
-        <Icon path={mdiMusic} size={2} />
-      </button>
-      <button className="footer__button footer__button--help">
-        <Icon path={mdiHelpCircle} size={2} />
-      </button>
-    </footer>
   );
 }
 
