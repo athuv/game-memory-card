@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import '../../assets/styles/Home.css';
 import Icon from '@mdi/react';
 import { mdiVolumeHigh, mdiMusic, mdiHelpCircle } from '@mdi/js';
@@ -76,7 +75,7 @@ function Footer() {
   );
 }
 
-export default function Home({ difficulty, setDifficulty }) {
+export default function Home({ setDifficulty }) {
   const handleDifficultyClick = (difficultyLevel) => {
     setDifficulty(difficultyLevel);
   };
