@@ -1,0 +1,53 @@
+:root {
+  /* https://coolors.co/palette/472e2a-86523c-e78a46-f5a462-fac459-fde3ae */
+  --primary-font-family: 'Exo2-variable-font';
+  --base-font-size: 1vw;
+  --primary-bg-color: #e78a46;
+  --secondary-bg-color: #fac459;
+  --primary-font-color: #fde3ae;
+  --button-border-radious: 0.8rem;
+}
+
+@font-face {
+  font-family: 'Exo2-variable-font';
+  src: url(/public/fonts/Exo2-VariableFont_wght.ttf);
+}
+
+html {
+  font-size: var(--base-font-size);
+  font-family: var(--primary-font-family);
+}
+
+#root {
+  /* width: 100%;
+  height: 100%; */
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.1)),
+    url(../../../public/images/background.jpg);
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  color: var(--primary-font-color);
+  overflow: hidden;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+}
+button {
+  font-family: var(--primary-font-family);
+  font-size: 2vw;
+}

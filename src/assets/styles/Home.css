@@ -1,0 +1,45 @@
+.home {
+  display: flex;
+  flex-direction: column;
+}
+.home__logo-container {
+}
+.home__logo {
+  width: auto;
+  height: 30vh;
+}
+.home__difficulty {
+  display: flex;
+  justify-content: center;
+  gap: 3vw;
+  padding: 2%;
+}
+.home__difficulty button {
+  height: fit-content;
+  width: fit-content;
+  padding: 1%;
+  border-radius: var(--button-border-radious);
+  border: 5px solid var(--primary-bg-color);
+  background: var(--secondary-bg-color);
+  cursor: pointer;
+}
+.home__difficulty button:hover {
+  border-color: var(--secondary-bg-color);
+  background: var(--primary-bg-color);
+}
+.home__title h1 {
+  font-size: 4.5rem;
+}
+.footer {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  height: 100%;
+  padding-bottom: 4%;
+  align-items: end;
+}
+.footer__button {
+  background: transparent;
+  border: none;
+  color: var(--primary-font-color);
+}
