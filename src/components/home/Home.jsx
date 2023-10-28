@@ -1,7 +1,7 @@
 import '../../assets/styles/Home.css';
 import Icon from '@mdi/react';
 import { mdiVolumeHigh, mdiMusic, mdiHelpCircle } from '@mdi/js';
-import { Header } from '../Header/Header';
+import { Header } from '../header/Header';
 
 function Title() {
   return (

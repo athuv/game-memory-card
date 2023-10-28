@@ -5,9 +5,15 @@
 .home__logo-container {
   height: fit-content;
 }
+.home__logo-container--logo-left {
+  align-self: start;
+}
 .home__logo {
   width: auto;
   height: 30vh;
+}
+.home__logo--left {
+  height: 17vh;
 }
 .home__difficulty {
   display: flex;
