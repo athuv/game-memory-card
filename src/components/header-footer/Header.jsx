@@ -1,4 +1,4 @@
-export function Header({ isDifficulty }) {
+export function Header({ isDifficulty, setDifficulty }) {
   return (
     <header
       className={`home__logo-container ${
@@ -14,7 +14,9 @@ export function Header({ isDifficulty }) {
         />
 
         <img
-          onClick={''}
+          onClick={() => {
+            setDifficulty(null);
+          }}
           className={`home__logo ${isDifficulty ? 'home__logo--left' : ''}`}
           srcSet="../../public/images/Logo_4.png"
           alt="logo"

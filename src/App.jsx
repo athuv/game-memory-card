@@ -12,7 +12,7 @@ function App() {
       {difficulty === null ? (
         <Home difficulty={difficulty} setDifficulty={setDifficulty} />
       ) : difficulty === 'easy' ? (
-        <Easy />
+        <Easy setDifficulty={setDifficulty} />
       ) : difficulty === 'medium' ? (
         'MEDIUM'
       ) : difficulty === 'hard' ? (

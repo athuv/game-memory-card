@@ -3,10 +3,10 @@ import EasyCard from './EasyCard';
 import Footer from '../header-footer/Footer';
 import '../../assets/styles/InGame.css';
 
-export default function Easy() {
+export default function Easy({ setDifficulty }) {
   return (
     <>
-      <Header isDifficulty={true} />
+      <Header setDifficulty={setDifficulty} isDifficulty={true} />
       <EasyCard />
       <Footer inGame={true} />
     </>
