@@ -1,0 +1,7 @@
+.home__logo--left {
+  height: 17vh;
+  cursor: pointer;
+}
+.home__logo--left:hover {
+  transform: scale(1.2);
+}
