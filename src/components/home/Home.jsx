@@ -78,7 +78,7 @@ function Footer() {
 
 export default function Home({ difficulty, setDifficulty }) {
   const handleDifficultyClick = (difficultyLevel) => {
-    setDifficulty(difficulty);
+    setDifficulty(difficultyLevel);
   };
 
   return (
