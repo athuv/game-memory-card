@@ -3,6 +3,7 @@
   flex-direction: column;
 }
 .home__logo-container {
+  height: fit-content;
 }
 .home__logo {
   width: auto;
