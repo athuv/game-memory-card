@@ -68,7 +68,7 @@ export default function LevelCard({ difficulty }) {
   }
 
   function increaseScore() {
-    setRounds((prevScore) => ({
+    setScore((prevScore) => ({
       ...prevScore,
       score: prevScore.score + 1,
     }));
@@ -132,10 +132,21 @@ export default function LevelCard({ difficulty }) {
       : '';
   }
 
-  // function checkWin() {
-  //   rounds.totalRound === rounds.playedRound
-  //     ?
-  // }
+  function checkWin() {
+    rounds.totalRound === rounds.playedRound
+      ? gameStatus.isLost === false
+        ? setGameStatus((prevStatus) => ({
+            ...prevStatus,
+            isWin: true,
+          }))(
+            setScore((prevScore) => ({
+              ...prevScore,
+              score: 0,
+            })),
+          )
+        : null
+      : null;
+  }
 
   function changeClickedStatus(id) {
     gameStatus.isLost === false
@@ -152,6 +163,8 @@ export default function LevelCard({ difficulty }) {
     isLost(id);
     changeClickedStatus(id);
     increaseRounds();
+    increaseScore();
+    checkWin();
     setIsFlipped(isFlipped === 0 ? 1 : 0);
   };
 
