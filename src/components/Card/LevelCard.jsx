@@ -52,9 +52,38 @@ export default function LevelCard({ difficulty }) {
   const [randomCharacters, setRandomCharacters] = useState(getCharacters());
   const [isFlipped, setIsFlipped] = useState(0);
   const [isImageVisible, setIsImageVisible] = useState(true);
-  const [score, setScore] = useState(0);
-  const [isLostGame, setIslostGame] = useState(false);
+  const [score, setScore] = useState({ score: 0, highScore: 0 });
+  const [gameStatus, setGameStatus] = useState({ isWin: false, isLost: false });
   const [initialized, setInitialized] = useState(false);
+  const [rounds, setRounds] = useState({
+    totalRound: initializeRounds(),
+    playedRound: 0,
+  });
+
+  function increaseRounds() {
+    setRounds((prevRounds) => ({
+      ...prevRounds,
+      playedRound: prevRounds.playedRound + 1,
+    }));
+  }
+
+  function increaseScore() {
+    setRounds((prevScore) => ({
+      ...prevScore,
+      score: prevScore.score + 1,
+    }));
+  }
+
+  function initializeRounds() {
+    const roundCount = {
+      easy: 5,
+      medium: 7,
+      hard: 10,
+    };
+
+    const round = roundCount[difficulty] || null;
+    return round;
+  }
 
   const cardRefs = useRef([]);
 
@@ -74,7 +103,7 @@ export default function LevelCard({ difficulty }) {
 
   useEffect(() => {
     if (initialized) {
-      isLostGame === false
+      gameStatus.isLost === false
         ? cardRefs.current.forEach((card) => {
             card.classList.contains('card__flipped')
               ? card.classList.remove('card__flipped')
@@ -82,7 +111,7 @@ export default function LevelCard({ difficulty }) {
           })
         : null;
 
-      isLostGame === false
+      gameStatus.isLost === false
         ? setTimeout(() => {
             setIsImageVisible(true);
             setRandomCharacters(getCharacters());
@@ -95,11 +124,21 @@ export default function LevelCard({ difficulty }) {
 
   function isLost(id) {
     const clickedItem = allCharacters.find((character) => character.id === id);
-    clickedItem.clicked ? setIslostGame(true) : '';
+    clickedItem.clicked
+      ? setGameStatus((prevStatus) => ({
+          ...prevStatus,
+          isLost: true,
+        }))
+      : '';
   }
 
+  // function checkWin() {
+  //   rounds.totalRound === rounds.playedRound
+  //     ?
+  // }
+
   function changeClickedStatus(id) {
-    isLostGame === false
+    gameStatus.isLost === false
       ? setAllCharacters((prevData) =>
           prevData.map((item) =>
             item.id === id ? { ...item, clicked: true } : item,
@@ -112,14 +151,17 @@ export default function LevelCard({ difficulty }) {
     setIsImageVisible(false);
     isLost(id);
     changeClickedStatus(id);
+    increaseRounds();
     setIsFlipped(isFlipped === 0 ? 1 : 0);
   };
 
   return (
     <section className="card-section">
       <div className="card-section__card-container">
-        {isLostGame ? (
+        {gameStatus.isLost ? (
           'lost'
+        ) : gameStatus.isWin ? (
+          'win'
         ) : (
           <Card
             cardRefs={cardRefs}
@@ -129,6 +171,7 @@ export default function LevelCard({ difficulty }) {
           />
         )}
       </div>
+      <span className="card-section__rounds">{`${rounds.playedRound} / ${rounds.totalRound}`}</span>
     </section>
   );
 }
