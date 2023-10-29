@@ -7,4 +7,46 @@
 }
 .footer-in-game {
   height: fit-content;
+  flex: 0;
+}
+.card-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.card-section__card-container {
+  display: flex;
+  gap: 1vw;
+}
+.card-container__card-wrapper {
+  position: relative;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.card-section__card-container__card {
+  height: 52vh;
+  border-radius: 1rem;
+}
+.card__overlay {
+  position: absolute;
+  height: 48vh;
+  width: 94%;
+}
+.card__overlay--image {
+  height: 100%;
+  width: 100%;
+  border-radius: 1rem;
+}
+.card {
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+.card__display {
+  display: none;
+}
+.card__flipped {
+  transform: rotateY(180deg);
 }
