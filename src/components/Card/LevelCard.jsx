@@ -47,17 +47,26 @@ function Card({ character, onClick, isImageVisible, cardRefs }) {
   );
 }
 
-export default function LevelCard() {
+export default function LevelCard({ difficulty }) {
   const [allCharacters, setAllCharacters] = useState(characters);
-  const [randomCharacters, setRandomCharacters] = useState(getCharacters(3));
+  const [randomCharacters, setRandomCharacters] = useState(getCharacters());
   const [isFlipped, setIsFlipped] = useState(0);
   const [isImageVisible, setIsImageVisible] = useState(true);
   const [score, setScore] = useState(0);
   const [isLostGame, setIslostGame] = useState(false);
-  const cardRefs = useRef([]);
   const [initialized, setInitialized] = useState(false);
 
-  function getCharacters(count) {
+  const cardRefs = useRef([]);
+
+  function getCharacters() {
+    const difficultyCounts = {
+      easy: 3,
+      medium: 4,
+      hard: 5,
+    };
+
+    const count = difficultyCounts[difficulty] || null;
+
     const shuffledCharacters = allCharacters.sort(() => 0.5 - Math.random());
     const randomCharacters = shuffledCharacters.slice(0, count);
     return randomCharacters;
@@ -76,7 +85,7 @@ export default function LevelCard() {
       isLostGame === false
         ? setTimeout(() => {
             setIsImageVisible(true);
-            setRandomCharacters(getCharacters(3));
+            setRandomCharacters(getCharacters());
           }, 600)
         : null;
     } else {

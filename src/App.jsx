@@ -11,14 +11,8 @@ function App() {
     <>
       {difficulty === null ? (
         <Home difficulty={difficulty} setDifficulty={setDifficulty} />
-      ) : difficulty === 'easy' ? (
-        <Card setDifficulty={setDifficulty} />
-      ) : difficulty === 'medium' ? (
-        'MEDIUM'
-      ) : difficulty === 'hard' ? (
-        'HARD'
       ) : (
-        'SOMETHING WENT WRONG!'
+        <Card setDifficulty={setDifficulty} difficulty={difficulty} />
       )}
     </>
   );
