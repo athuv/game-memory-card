@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './assets/styles/styles.css';
 import './assets/styles/App.css';
 import Home from './components/home/Home';
-import Easy from './components/easy/Easy';
+import Card from './components/Card/Card';
 
 function App() {
   const [difficulty, setDifficulty] = useState(null);
@@ -12,7 +12,7 @@ function App() {
       {difficulty === null ? (
         <Home difficulty={difficulty} setDifficulty={setDifficulty} />
       ) : difficulty === 'easy' ? (
-        <Easy setDifficulty={setDifficulty} />
+        <Card setDifficulty={setDifficulty} />
       ) : difficulty === 'medium' ? (
         'MEDIUM'
       ) : difficulty === 'hard' ? (

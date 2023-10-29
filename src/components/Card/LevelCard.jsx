@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import characters from '../../characters';
 import Tilt from 'react-parallax-tilt';
-import { mdiCreditCardRefresh } from '@mdi/js';
 
 function Card({ character, onClick, isImageVisible, cardRefs }) {
   return (
@@ -48,7 +47,7 @@ function Card({ character, onClick, isImageVisible, cardRefs }) {
   );
 }
 
-export default function EasyCard() {
+export default function LevelCard() {
   const [allCharacters, setAllCharacters] = useState(characters);
   const [randomCharacters, setRandomCharacters] = useState(getCharacters(3));
   const [isFlipped, setIsFlipped] = useState(0);
