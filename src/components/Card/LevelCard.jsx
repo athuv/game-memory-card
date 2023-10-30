@@ -47,6 +47,14 @@ function Card({ character, onClick, isImageVisible, cardRefs }) {
   );
 }
 
+function LostComponent({ onClick }) {
+  return <button onClick={onClick}>Lost Restart</button>;
+}
+
+function WinComponent({ onClick }) {
+  return <button onClick={onClick}>Win Restart</button>;
+}
+
 export default function LevelCard({ difficulty, setScore, score }) {
   const [allCharacters, setAllCharacters] = useState(characters);
   const [randomCharacters, setRandomCharacters] = useState(getCharacters());
@@ -97,16 +105,10 @@ export default function LevelCard({ difficulty, setScore, score }) {
   }
 
   function checkWin() {
-    console.log(`${rounds.totalRound} - ${rounds.playedRound}`);
     if (rounds.totalRound === rounds.playedRound + 1) {
       setGameStatus((prevStatus) => ({
         ...prevStatus,
         isWin: true,
-      }));
-
-      setScore((prevScore) => ({
-        ...prevScore,
-        score: 0,
       }));
     }
   }
@@ -120,6 +122,15 @@ export default function LevelCard({ difficulty, setScore, score }) {
         )
       : null;
   }
+
+  useEffect(() => {
+    if (score.score > score.highScore) {
+      setScore((prevScore) => ({
+        ...prevScore,
+        highScore: score.score,
+      }));
+    }
+  }, [score.score]);
 
   useEffect(() => {
     if (initialized) {
@@ -159,13 +170,37 @@ export default function LevelCard({ difficulty, setScore, score }) {
     setIsFlipped(isFlipped === 0 ? 1 : 0);
   };
 
+  const handleRestartClick = () => {
+    setGameStatus((prevStatus) => ({
+      ...prevStatus,
+      isWin: false,
+      isLost: false,
+    }));
+
+    setRounds((prevRounds) => ({
+      ...prevRounds,
+      totalRound: initializeRounds(),
+      playedRound: 0,
+    }));
+
+    setScore((prevScore) => ({
+      ...prevScore,
+      score: 0,
+    }));
+
+    setAllCharacters(characters);
+    setInitialized(false);
+    setIsFlipped(0);
+    setIsImageVisible(true);
+  };
+
   return (
     <section className="card-section">
       <div className="card-section__card-container">
         {gameStatus.isLost ? (
-          'lost'
+          <LostComponent onClick={handleRestartClick} />
         ) : gameStatus.isWin ? (
-          'win'
+          <WinComponent onClick={handleRestartClick} />
         ) : (
           <Card
             cardRefs={cardRefs}

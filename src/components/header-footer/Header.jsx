@@ -23,9 +23,13 @@ export function Header({ isDifficulty, setDifficulty, score }) {
         />
       </picture>
       {isDifficulty && (
-        <div>
-          <span>Score: {score.score}</span>
-          <span>High Score: {score.highScore}</span>
+        <div className="score__score-container">
+          <span className="score score-container__score">
+            Score: {score.score}
+          </span>
+          <span className="score score-container__high-score ">
+            High Score: {score.highScore}
+          </span>
         </div>
       )}
     </header>
