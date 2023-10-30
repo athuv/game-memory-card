@@ -1,4 +1,4 @@
-export function Header({ isDifficulty, setDifficulty }) {
+export function Header({ isDifficulty, setDifficulty, score }) {
   return (
     <header
       className={`home__logo-container ${
@@ -22,6 +22,12 @@ export function Header({ isDifficulty, setDifficulty }) {
           alt="logo"
         />
       </picture>
+      {isDifficulty && (
+        <div>
+          <span>Score: {score.score}</span>
+          <span>High Score: {score.highScore}</span>
+        </div>
+      )}
     </header>
   );
 }

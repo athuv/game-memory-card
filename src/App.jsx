@@ -6,13 +6,19 @@ import Card from './components/Card/Card';
 
 function App() {
   const [difficulty, setDifficulty] = useState(null);
+  const [score, setScore] = useState({ score: 0, highScore: 0 });
 
   return (
     <>
       {difficulty === null ? (
         <Home difficulty={difficulty} setDifficulty={setDifficulty} />
       ) : (
-        <Card setDifficulty={setDifficulty} difficulty={difficulty} />
+        <Card
+          score={score}
+          setScore={setScore}
+          setDifficulty={setDifficulty}
+          difficulty={difficulty}
+        />
       )}
     </>
   );

@@ -7,6 +7,11 @@
 }
 .home__logo-container--logo-left {
   align-self: start;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .home__logo {
   width: auto;

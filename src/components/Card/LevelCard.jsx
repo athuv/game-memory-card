@@ -47,32 +47,17 @@ function Card({ character, onClick, isImageVisible, cardRefs }) {
   );
 }
 
-export default function LevelCard({ difficulty }) {
+export default function LevelCard({ difficulty, setScore, score }) {
   const [allCharacters, setAllCharacters] = useState(characters);
   const [randomCharacters, setRandomCharacters] = useState(getCharacters());
   const [isFlipped, setIsFlipped] = useState(0);
   const [isImageVisible, setIsImageVisible] = useState(true);
-  const [score, setScore] = useState({ score: 0, highScore: 0 });
   const [gameStatus, setGameStatus] = useState({ isWin: false, isLost: false });
   const [initialized, setInitialized] = useState(false);
   const [rounds, setRounds] = useState({
     totalRound: initializeRounds(),
     playedRound: 0,
   });
-
-  function increaseRounds() {
-    setRounds((prevRounds) => ({
-      ...prevRounds,
-      playedRound: prevRounds.playedRound + 1,
-    }));
-  }
-
-  function increaseScore() {
-    setScore((prevScore) => ({
-      ...prevScore,
-      score: prevScore.score + 1,
-    }));
-  }
 
   function initializeRounds() {
     const roundCount = {
@@ -82,7 +67,7 @@ export default function LevelCard({ difficulty }) {
     };
 
     const round = roundCount[difficulty] || null;
-    return round;
+    return parseInt(round);
   }
 
   const cardRefs = useRef([]);
@@ -101,27 +86,6 @@ export default function LevelCard({ difficulty }) {
     return randomCharacters;
   }
 
-  useEffect(() => {
-    if (initialized) {
-      gameStatus.isLost === false
-        ? cardRefs.current.forEach((card) => {
-            card.classList.contains('card__flipped')
-              ? card.classList.remove('card__flipped')
-              : card.classList.add('card__flipped');
-          })
-        : null;
-
-      gameStatus.isLost === false
-        ? setTimeout(() => {
-            setIsImageVisible(true);
-            setRandomCharacters(getCharacters());
-          }, 600)
-        : null;
-    } else {
-      setInitialized(true);
-    }
-  }, [isFlipped]);
-
   function isLost(id) {
     const clickedItem = allCharacters.find((character) => character.id === id);
     clickedItem.clicked
@@ -133,19 +97,18 @@ export default function LevelCard({ difficulty }) {
   }
 
   function checkWin() {
-    rounds.totalRound === rounds.playedRound
-      ? gameStatus.isLost === false
-        ? setGameStatus((prevStatus) => ({
-            ...prevStatus,
-            isWin: true,
-          }))(
-            setScore((prevScore) => ({
-              ...prevScore,
-              score: 0,
-            })),
-          )
-        : null
-      : null;
+    console.log(`${rounds.totalRound} - ${rounds.playedRound}`);
+    if (rounds.totalRound === rounds.playedRound + 1) {
+      setGameStatus((prevStatus) => ({
+        ...prevStatus,
+        isWin: true,
+      }));
+
+      setScore((prevScore) => ({
+        ...prevScore,
+        score: 0,
+      }));
+    }
   }
 
   function changeClickedStatus(id) {
@@ -158,13 +121,41 @@ export default function LevelCard({ difficulty }) {
       : null;
   }
 
+  useEffect(() => {
+    if (initialized) {
+      if (gameStatus.isLost === false) {
+        cardRefs.current.forEach((card) => {
+          card.classList.contains('card__flipped')
+            ? card.classList.remove('card__flipped')
+            : card.classList.add('card__flipped');
+        });
+
+        setScore((prevScore) => ({
+          ...prevScore,
+          score: prevScore.score + 1,
+        }));
+
+        setRounds((prevRounds) => ({
+          ...prevRounds,
+          playedRound: prevRounds.playedRound + 1,
+        }));
+
+        checkWin();
+
+        setTimeout(() => {
+          setIsImageVisible(true);
+          setRandomCharacters(getCharacters());
+        }, 600);
+      }
+    } else {
+      setInitialized(true);
+    }
+  }, [isFlipped]);
+
   const handleTiltClick = (id) => {
     setIsImageVisible(false);
     isLost(id);
     changeClickedStatus(id);
-    increaseRounds();
-    increaseScore();
-    checkWin();
     setIsFlipped(isFlipped === 0 ? 1 : 0);
   };
 
