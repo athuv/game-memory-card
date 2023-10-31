@@ -1,64 +1,74 @@
 import { v4 as uuidv4 } from 'uuid';
+import po from './assets/images/po.jpg';
+import tigress from './assets/images/tigress.jpg';
+import crane from './assets/images/crane.jpg';
+import kai from './assets/images/kai.jpg';
+import mantis from './assets/images/mantis.jpg';
+import mono from './assets/images/mono.jpg';
+import mrPing from './assets/images/mr_ping.jpg';
+import oogway from './assets/images/oogway.jpg';
+import shifu from './assets/images/shifu.jpg';
+import viper from './assets/images/viper.jpg';
 
 const characters = [
   {
     id: uuidv4(),
     name: 'Po',
-    src: '../public/images/po.jpg',
+    src: po,
     clicked: false,
   },
   {
     id: uuidv4(),
     name: 'Tigress',
-    src: '../public/images/tigress.jpg',
+    src: tigress,
     clicked: false,
   },
   {
     id: uuidv4(),
     name: 'Crane',
-    src: '../public/images/crane.jpg',
+    src: crane,
     clicked: false,
   },
   {
     id: uuidv4(),
     name: 'Kai',
-    src: '../public/images/kai.jpg',
+    src: kai,
     clicked: false,
   },
   {
     id: uuidv4(),
     name: 'Mantis',
-    src: '../public/images/mantis.jpg',
+    src: mantis,
     clicked: false,
   },
   {
     id: uuidv4(),
     name: 'Mono',
-    src: '../public/images/mono.jpg',
+    src: mono,
     clicked: false,
   },
   {
     id: uuidv4(),
     name: 'Mr Ping',
-    src: '../public/images/mr_ping.jpg',
+    src: mrPing,
     clicked: false,
   },
   {
     id: uuidv4(),
     name: 'Oogway',
-    src: '../public/images/oogway.jpg',
+    src: oogway,
     clicked: false,
   },
   {
     id: uuidv4(),
     name: 'Shifu',
-    src: '../public/images/shifu.jpg',
+    src: shifu,
     clicked: false,
   },
   {
     id: uuidv4(),
     name: 'Viper',
-    src: '../public/images/viper.jpg',
+    src: viper,
     clicked: false,
   },
 ];

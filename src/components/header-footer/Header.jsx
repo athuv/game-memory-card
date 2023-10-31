@@ -1,3 +1,6 @@
+import logo480 from '../../assets/images/Logo_480.png';
+import logo from '../../assets/images/logo.png';
+
 export function Header({ isDifficulty, setDifficulty, score }) {
   return (
     <header
@@ -6,22 +9,15 @@ export function Header({ isDifficulty, setDifficulty, score }) {
       }`}
     >
       <picture>
-        <source
-          srcSet="./../../public/images/Logo_480.png"
-          media="(max-width: 480px)"
-        />
-        <source srcSet="" media="(max-width: 768px)" />
-        <source
-          srcSet="./../../public/images/Logo.png"
-          media="(min-width: 769px)"
-        />
+        <source srcSet={logo480} media="(max-width: 748px)" />
+        <source srcSet={logo} media="(min-width: 749px)" />
 
         <img
           onClick={() => {
             setDifficulty(null);
           }}
           className={`home__logo ${isDifficulty ? 'home__logo--left' : ''}`}
-          srcSet="./../../public/images/Logo.png"
+          srcSet={logo}
           alt="logo"
         />
       </picture>

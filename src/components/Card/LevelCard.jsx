@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import characters from '../../characters';
 import Tilt from 'react-parallax-tilt';
+import card from '../../assets/images/card.jpg';
 
 function Card({ character, onClick, isImageVisible, cardRefs }) {
   return (
@@ -29,15 +30,12 @@ function Card({ character, onClick, isImageVisible, cardRefs }) {
               )}
             </div>
             <picture>
-              <source
-                srcSet="./../../public/images/card.jpg"
-                media="(min-width: 769px)"
-              />
+              <source srcSet={card} media="(min-width: 769px)" />
 
               <img
                 className={`card-section__card-container__card`}
-                srcSet="./../../public/images/card.jpg"
-                alt="logo"
+                srcSet={card}
+                alt="overlay-image"
               />
             </picture>
           </Tilt>
