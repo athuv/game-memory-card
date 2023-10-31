@@ -14,7 +14,7 @@
   align-items: center;
 }
 .home__logo {
-  width: auto;
+  width: 95vw;
   height: 30vh;
 }
 .home__difficulty {
@@ -51,4 +51,18 @@
   background: transparent;
   border: none;
   color: var(--primary-font-color);
+}
+/* Mobile */
+@media only screen and (max-width: 480px) {
+  .home__logo--left {
+    width: fit-content;
+    height: 12vh;
+    cursor: pointer;
+  }
+  .score {
+    font-size: 6rem;
+  }
+}
+/* Tablet */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
 }

@@ -67,3 +67,47 @@
 .score {
   font-size: 2rem;
 }
+.popup {
+  height: 55vh;
+  background: rgba(0, 0, 0, 0.527);
+  width: 70vw;
+  border-radius: 2rem;
+  box-shadow: -1px 1px 21px 4px rgba(0, 0, 0, 0.83);
+  -webkit-box-shadow: -1px 1px 21px 4px rgba(0, 0, 0, 0.83);
+  -moz-box-shadow: -1px 1px 21px 4px rgba(0, 0, 0, 0.83);
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  justify-content: center;
+  align-items: center;
+}
+.popup span {
+  width: fit-content;
+  font-size: 10rem;
+}
+.popup button {
+  height: fit-content;
+  width: fit-content;
+  padding: 1%;
+  border-radius: var(--button-border-radious);
+  border: 5px solid var(--primary-bg-color);
+  background: var(--secondary-bg-color);
+  cursor: pointer;
+  color: var(--primary-bg-color);
+}
+.popup button:hover {
+  border-color: var(--secondary-bg-color);
+  background: var(--primary-bg-color);
+  color: var(--secondary-bg-color);
+}
+/* Mobile */
+@media only screen and (max-width: 480px) {
+  .home__logo--left {
+    width: fit-content;
+    height: 12vh;
+    cursor: pointer;
+  }
+}
+/* Tablet */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+}

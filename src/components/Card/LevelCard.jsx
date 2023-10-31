@@ -22,7 +22,7 @@ function Card({ character, onClick, isImageVisible, cardRefs }) {
 
                   <img
                     className={`card__overlay--image`}
-                    srcSet={character.src}
+                    srcSet={item.src}
                     alt="overlay-image"
                   />
                 </picture>
@@ -51,8 +51,15 @@ function LostComponent({ onClick }) {
   return <button onClick={onClick}>Lost Restart</button>;
 }
 
-function WinComponent({ onClick }) {
-  return <button onClick={onClick}>Win Restart</button>;
+function RestartPopup({ onClick, message }) {
+  return (
+    <div>
+      <div className="popup">
+        <span>{message}</span>
+        <button onClick={onClick}>Restart</button>
+      </div>
+    </div>
+  );
 }
 
 export default function LevelCard({ difficulty, setScore, score }) {
@@ -198,9 +205,9 @@ export default function LevelCard({ difficulty, setScore, score }) {
     <section className="card-section">
       <div className="card-section__card-container">
         {gameStatus.isLost ? (
-          <LostComponent onClick={handleRestartClick} />
+          <RestartPopup message={'You Lost'} onClick={handleRestartClick} />
         ) : gameStatus.isWin ? (
-          <WinComponent onClick={handleRestartClick} />
+          <RestartPopup message={'You Won'} onClick={handleRestartClick} />
         ) : (
           <Card
             cardRefs={cardRefs}
