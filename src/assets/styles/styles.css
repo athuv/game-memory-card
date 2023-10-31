@@ -52,3 +52,12 @@ button {
   font-family: var(--primary-font-family);
   font-size: 2vw;
 }
+/* Mobile */
+@media only screen and (max-width: 480px) {
+  #root {
+    justify-content: center;
+  }
+}
+/* Tablet */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+}

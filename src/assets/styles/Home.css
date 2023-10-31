@@ -14,7 +14,6 @@
   align-items: center;
 }
 .home__logo {
-  width: 95vw;
   height: 30vh;
 }
 .home__difficulty {
@@ -54,13 +53,28 @@
 }
 /* Mobile */
 @media only screen and (max-width: 480px) {
+  button {
+    font-size: 7vw;
+  }
+  .home__logo {
+    width: 100%;
+    height: fit-content;
+  }
   .home__logo--left {
     width: fit-content;
     height: 12vh;
     cursor: pointer;
   }
-  .score {
-    font-size: 6rem;
+  .footer {
+    justify-content: center;
+    flex: 0;
+    height: fit-content;
+  }
+  .home__title h1 {
+    font-size: 8rem;
+  }
+  .footer__button svg {
+    font-size: 2vh;
   }
 }
 /* Tablet */

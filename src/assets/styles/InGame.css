@@ -101,11 +101,22 @@
   color: var(--secondary-bg-color);
 }
 /* Mobile */
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 748px) {
+  body {
+    overflow: auto;
+    height: 100%;
+    background-attachment: fixed;
+  }
   .home__logo--left {
     width: fit-content;
     height: 12vh;
     cursor: pointer;
+  }
+  .score {
+    font-size: 7rem;
+  }
+  .card-section__card-container {
+    flex-direction: column;
   }
 }
 /* Tablet */
