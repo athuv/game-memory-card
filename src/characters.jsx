@@ -5,7 +5,7 @@ import crane from './assets/images/crane.jpg';
 import kai from './assets/images/kai.jpg';
 import mantis from './assets/images/mantis.jpg';
 import mono from './assets/images/mono.jpg';
-import mrPing from './assets/images/mr_ping.jpg';
+import mrPing from './assets/images/mr-ping.jpg';
 import oogway from './assets/images/oogway.jpg';
 import shifu from './assets/images/shifu.jpg';
 import viper from './assets/images/viper.jpg';
