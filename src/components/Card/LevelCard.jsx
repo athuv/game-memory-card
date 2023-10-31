@@ -30,13 +30,13 @@ function Card({ character, onClick, isImageVisible, cardRefs }) {
             </div>
             <picture>
               <source
-                srcSet="../../public/images/card.jpg"
+                srcSet="./../../public/images/card.jpg"
                 media="(min-width: 769px)"
               />
 
               <img
                 className={`card-section__card-container__card`}
-                srcSet="../../public/images/card.jpg"
+                srcSet="./../../public/images/card.jpg"
                 alt="logo"
               />
             </picture>
@@ -45,10 +45,6 @@ function Card({ character, onClick, isImageVisible, cardRefs }) {
       ))}
     </>
   );
-}
-
-function LostComponent({ onClick }) {
-  return <button onClick={onClick}>Lost Restart</button>;
 }
 
 function RestartPopup({ onClick, message }) {

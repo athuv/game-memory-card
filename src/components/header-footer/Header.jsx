@@ -7,12 +7,12 @@ export function Header({ isDifficulty, setDifficulty, score }) {
     >
       <picture>
         <source
-          srcSet="../../public/images/Logo_480.png"
+          srcSet="./../../public/images/Logo_480.png"
           media="(max-width: 480px)"
         />
         <source srcSet="" media="(max-width: 768px)" />
         <source
-          srcSet="../../public/images/Logo.png"
+          srcSet="./../../public/images/Logo.png"
           media="(min-width: 769px)"
         />
 
@@ -21,7 +21,7 @@ export function Header({ isDifficulty, setDifficulty, score }) {
             setDifficulty(null);
           }}
           className={`home__logo ${isDifficulty ? 'home__logo--left' : ''}`}
-          srcSet="../../public/images/Logo.png"
+          srcSet="./../../public/images/Logo.png"
           alt="logo"
         />
       </picture>
