@@ -1,4 +1,4 @@
-import logo480 from '../../assets/images/Logo_480.png';
+import logo480 from '../../assets/images/logo_480.png';
 import logo from '../../assets/images/logo.png';
 
 export function Header({ isDifficulty, setDifficulty, score }) {
